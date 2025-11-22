@@ -1,275 +1,518 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> صفحة الامتحانات</title>
+<title>امتحانات علوم الأرض</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    body {
-        margin: 0;
-        font-family: 'Cairo', sans-serif;
-        background: #f0f4f8;
-        color: #333;
-    }
-    /* رأس الصفحة */
-    header {
-        background: #0b3d91; /* أزرق أغمق */
-        color: white;
-        padding: 20px;
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        position: relative;
-        text-shadow: 0 0 8px #ffffff, 0 0 15px #00f; /* تأثير glow للنص */
-    }
-    /* سهم الرجوع */
-    .back-arrow {
-        position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 30px;
-        color: rgb(250, 250, 250);
-        text-decoration: none;
-        transition: transform 0.2s;
-    }
-    .back-arrow:hover {
-        transform: translateY(-50%) scale(2);
-        text-shadow: 0 0 8px rgb(254, 254, 0), 0 0 15px rgb(255, 38, 0);
-    }
+  :root{
+    --bg:#050816;
+    --card:#080c20;
+    --card-soft:#0c1026;
+    --accent:#00d8ff;
+    --accent-strong:#35a8ff;
+    --accent-yellow:#ffe66d;
+    --text:#f9fafb;
+    --muted:#9ca3af;
+    --radius:14px;
+  }
 
-    .container {
-        max-width: 1200px;
-        margin: 30px auto;
-        padding: 0 20px;
+  *{ box-sizing:border-box; }
+
+  body,html{
+    margin:0;
+    padding:0;
+    font-family:'Cairo',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+  }
+
+  canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+  }
+
+  /* HEADER */
+  header{
+    position:relative;
+    z-index:2;
+    padding:14px 18px 16px;
+    text-align:center;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    box-shadow:0 6px 20px rgba(0,0,0,0.7);
+  }
+
+  .back-arrow{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:24px;
+    text-decoration:none;
+    color:var(--accent);
+    transition:transform 0.2s, color 0.2s, text-shadow 0.2s;
+  }
+
+  .back-arrow:hover{
+    transform:translateY(-50%) scale(1.2);
+    color:var(--accent-yellow);
+    text-shadow:0 0 10px var(--accent-yellow);
+  }
+
+  header h1{
+    margin:0;
+    font-size:1.25rem;
+    letter-spacing:0.03em;
+    color:var(--accent);
+    text-shadow:0 0 8px rgba(0,216,255,0.8);
+  }
+
+  header p{
+    margin:4px 0 0;
+    font-size:0.8rem;
+    color:var(--muted);
+  }
+
+  /* PAGE WRAPPER */
+  .page{
+    position:relative;
+    z-index:2;
+    max-width:980px;
+    margin:18px auto 40px;
+    padding:0 14px 30px;
+  }
+
+  .hero-note{
+    font-size:0.85rem;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+
+  /* UNIT CARD */
+  .unit-card{
+    background:radial-gradient(circle at top left,rgba(0,216,255,0.12),transparent 55%),
+               radial-gradient(circle at bottom right,rgba(92,70,255,0.12),transparent 55%),
+               var(--card);
+    border-radius:var(--radius);
+    padding:14px 14px 10px;
+    margin-bottom:16px;
+    border:1px solid rgba(0,216,255,0.18);
+    box-shadow:0 0 18px rgba(0,0,0,0.8);
+    animation:fadeUp 0.7s ease both;
+  }
+  .unit-card:nth-child(2){ animation-delay:0.05s; }
+  .unit-card:nth-child(3){ animation-delay:0.1s; }
+  .unit-card:nth-child(4){ animation-delay:0.15s; }
+  .unit-card:nth-child(5){ animation-delay:0.2s; }
+
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(12px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .unit-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
+  }
+
+  .unit-title{
+    font-size:1rem;
+    font-weight:700;
+  }
+
+  .unit-meta{
+    font-size:0.78rem;
+    color:var(--muted);
+  }
+
+  .unit-tag{
+    font-size:0.72rem;
+    padding:3px 9px;
+    border-radius:999px;
+    background:rgba(0,216,255,0.08);
+    border:1px solid rgba(0,216,255,0.5);
+    color:var(--accent-strong);
+    white-space:nowrap;
+  }
+
+  /* LESSONS (بس اسم الدرس + الأزرار) */
+  .lesson-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .lesson{
+    background:var(--card-soft);
+    border-radius:10px;
+    padding:9px 10px 8px;
+    border:1px solid rgba(148,163,184,0.25);
+    transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .lesson:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 12px rgba(0,216,255,0.35);
+    border-color:rgba(0,216,255,0.7);
+    background:#0f172a;
+  }
+
+  .lesson-title{
+    font-size:1.02rem;
+    font-weight:700;
+    color:#e5f2ff;
+    margin-bottom:4px;
+    line-height:1.6;
+  }
+
+  .lesson-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+
+  .btn{
+    border-radius:999px;
+    padding:6px 12px;
+    font-size:0.8rem;
+    font-weight:700;
+    border:none;
+    text-decoration:none;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    transition:transform 0.15s, box-shadow 0.2s, background 0.2s, color 0.2s;
+    white-space:nowrap;
+  }
+
+  .btn-online{
+    background:linear-gradient(135deg,#00f5a0,#00d8ff);
+    color:#020617;
+    box-shadow:0 0 12px rgba(0,245,160,0.5);
+  }
+
+  .btn-online:hover{
+    transform:translateY(-1px);
+    box-shadow:0 0 18px rgba(0,245,160,0.7);
+  }
+
+  .btn-pdf{
+    background:rgba(148,163,184,0.2);
+    color:#e5e7eb;
+    border:1px solid rgba(148,163,184,0.6);
+  }
+
+  .btn-pdf:hover{
+    background:rgba(148,163,184,0.35);
+  }
+
+  /* FOOTER داخل الوحدة */
+  .unit-footer{
+    margin-top:10px;
+    padding-top:8px;
+    border-top:1px dashed rgba(148,163,184,0.4);
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:flex-start;
+  }
+
+  .unit-footer .btn{
+    font-size:0.8rem;
+  }
+
+  .unit-footer .btn-online{
+    background:linear-gradient(135deg,#35a8ff,#00d8ff);
+    color:#020617;
+  }
+
+  /* معادلات متطايرة */
+  .equation{
+    position:absolute;
+    color:rgba(0,216,255,0.35);
+    font-size:16px;
+    user-select:none;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:768px){
+    header h1{ font-size:1.05rem; }
+    header p{ font-size:0.78rem; }
+    .back-arrow{ font-size:22px; }
+    .unit-card{ padding:12px 12px 8px; }
+    .lesson-title{ font-size:1.02rem; }
+  }
+
+  @media (max-width:480px){
+    .page{ padding:0 10px 28px; }
+    .lesson{
+      padding:9px 9px 7px;
     }
-    .unit-card {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        margin-bottom: 25px;
-        padding: 20px;
-        transition: transform 0.3s, box-shadow 0.3s;
+    .lesson-buttons .btn{
+      flex:1 1 120px;
+      text-align:center;
     }
-    .unit-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    .unit-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        cursor: pointer;
-    }
-    .unit-header h2 {
-        margin: 0;
-        font-size: 20px;
-    }
-    .unit-content {
-        margin-top: 15px;
-        display: none;
-    }
-    .lesson {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: #f8f9fa;
-        padding: 12px 15px;
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
-    .lesson span {
-        font-weight: 500;
-    }
-    .buttons {
-        display: flex;
-        gap: 10px;
-    }
-    .btn {
-        padding: 8px 15px;
-        border: none;
-        border-radius: 6px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.3s;
-        text-decoration: none;
-        color: white;
-    }
-    .btn-online { background: #198754; }
-    .btn-online:hover { background: #157347; }
-    .btn-pdf { background: #ffc107; color: #333; }
-    .btn-pdf:hover { background: #e0a800; }
-    .unit-final {
-        text-align: center;
-        margin-top: 15px;
-    }
+  }
 </style>
 </head>
 <body>
 
+<!-- نجوم الخلفية -->
+<canvas id="stars-canvas"></canvas>
+
 <header>
-    <a href="GEO.html" class="back-arrow">←</a>
-     صفحة الامتحانات
+  <a href="GEO.html" class="back-arrow">←</a>
+  <h1>امتحانات علوم الأرض</h1>
 </header>
 
-<div class="container">
+<div class="page">
+  <div class="hero-note">
+  </div>
 
-    <!-- الوحدة الأولى -->
-    <div class="unit-card">
-        <div class="unit-header" onclick="toggleUnit(this)">
-            <h2>الوحدة 1: التغير المناخي</h2>
-            <span>▼</span>
-        </div>
-        <div class="unit-content">
-            <div class="lesson">
-                <span>الدرس 1: الوقود الأحفوري وغازات الدفيئة</span>
-                <div class="buttons">
-                    <a href="https://www.joacademy.com/ar/online-exams/4227" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="pdf/الوقود الأحفوري وغازات الدفيئة.pdf" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="lesson">
-                <span>الدرس 2: الوقود الأحفوري والتغير المناخي</span>
-                <div class="buttons">
-                    <a href="https://www.joacademy.com/ar/online-exams/4152" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="pdf/الوقود الأحفوري والتغير المناخي.pdf" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="lesson">
-                <span>الدرس 3: الحد من التغير المناخي والتكيف مع آثاره</span>
-                <div class="buttons">
-                    <a href="https://www.joacademy.com/ar/online-exams/4254" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="pdf/الحد من التغير المناخي والتكيف مع آثاره.pdf" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="unit-final">
-                <a href="https://www.joacademy.com/online-exams/4321" class="btn btn-online">امتحان الوحدة كامل</a>
-                <a href="pdf/ع.أرض اختبار الوحدة الأولى.pdf" class="btn btn-pdf" target="_blank">تحميل PDF الوحدة</a>
-            </div>
-        </div>
+  <!-- الوحدة 1 -->
+  <div class="unit-card">
+    <div class="unit-header">
+      <div>
+        <div class="unit-title">الوحدة 1: التغير المناخي</div>
+        <div class="unit-meta">3 دروس + امتحان وحدة كامل</div>
+      </div>
+      <div class="unit-tag">التغير المناخي</div>
     </div>
 
-    <!-- الوحدة الثانية -->
-    <div class="unit-card">
-        <div class="unit-header" onclick="toggleUnit(this)">
-            <h2>الوحدة 2: التراكيب الجيولوجية</h2>
-            <span>▼</span>
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-title">الدرس 1: الوقود الأحفوري وغازات الدفيئة</div>
+        <div class="lesson-buttons">
+          <a href="https://www.joacademy.com/ar/online-exams/4227" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+          <a href="pdf/الوقود الأحفوري وغازات الدفيئة.pdf" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
-        <div class="unit-content">
-            <div class="lesson">
-                <span>الدرس 1: تشوه الصخور</span>
-                <div class="buttons">
-                    <a href="https://www.joacademy.com/ar/online-exams/4379" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="lesson">
-                <span>الدرس 2: الصدوع</span>
-                <div class="buttons">
-                    <a href="https://www.joacademy.com/ar/online-exams/4393" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="pdf/اختبار الدرس الثاني- الوحدة الثانية .pdf" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="lesson">
-                <span>الدرس 3: الطيات</span>
-                <div class="buttons">
-                    <a href="https://www.joacademy.com/ar/online-exams/4398" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="pdf/اختبار الطيات.pdf" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-           
-            <div class="unit-final">
-                <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
-                <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF الوحدة</a>
-            </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 2: الوقود الأحفوري والتغير المناخي</div>
+        <div class="lesson-buttons">
+          <a href="https://www.joacademy.com/ar/online-exams/4152" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+          <a href="pdf/الوقود الأحفوري والتغير المناخي.pdf" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 3: الحد من التغير المناخي والتكيف مع آثاره</div>
+        <div class="lesson-buttons">
+          <a href="https://www.joacademy.com/ar/online-exams/4254" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+          <a href="pdf/الحد من التغير المناخي والتكيف مع آثاره.pdf" class="btn btn-pdf" target="_blank">PDF</a>
+        </div>
+      </div>
     </div>
 
-    <!-- الوحدة الثالثة -->
-    <div class="unit-card">
-        <div class="unit-header" onclick="toggleUnit(this)">
-            <h2>الوحدة 3: الصفائح التكتونية</h2>
-            <span>▼</span>
-        </div>
-        <div class="unit-content">
-            <div class="lesson">
-                <span>الدرس 1: انجراف القارات</span>
-                <div class="buttons">
-                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="lesson">
-                <span>الدرس 2: توسع قاع المحيط</span>
-                <div class="buttons">
-                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="lesson">
-                <span>الدرس 3: حدود الصفائح</span>
-                <div class="buttons">
-                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="unit-final">
-                <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
-                <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF الوحدة</a>
-            </div>
-        </div>
+    <div class="unit-footer">
+      <a href="https://www.joacademy.com/online-exams/4321" class="btn btn-online" target="_blank">امتحان الوحدة كامل</a>
+      <a href="pdf/ع.أرض اختبار الوحدة الأولى.pdf" class="btn btn-pdf" target="_blank">PDF الوحدة</a>
+    </div>
+  </div>
+
+  <!-- الوحدة 2 -->
+  <div class="unit-card">
+    <div class="unit-header">
+      <div>
+        <div class="unit-title">الوحدة 2: التراكيب الجيولوجية</div>
+        <div class="unit-meta">3 دروس + امتحان وحدة كامل</div>
+      </div>
+      <div class="unit-tag">التراكيب الجيولوجية</div>
     </div>
 
-    <!-- الوحدة الرابعة -->
-    <div class="unit-card">
-        <div class="unit-header" onclick="toggleUnit(this)">
-            <h2>الوحدة 4: الاستكشاف الجيولوجي</h2>
-            <span>▼</span>
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-title">الدرس 1: تشوه الصخور</div>
+        <div class="lesson-buttons">
+          <a href="https://www.joacademy.com/ar/online-exams/4379" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
-        <div class="unit-content">
-            <div class="lesson">
-                <span>الدرس 1: الخرائط الجيولوجية</span>
-                <div class="buttons">
-                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="lesson">
-                <span>الدرس 2: طرائق الاستكشاف الجيولوجي</span>
-                <div class="buttons">
-                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="lesson">
-                <span>الدرس 3: تعدين الخامات المعدنية وأثره على البيئة</span>
-                <div class="buttons">
-                    <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-                    <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF</a>
-                </div>
-            </div>
-            <div class="unit-final">
-                <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
-                <a href="#" class="btn btn-pdf" target="_blank">تحميل PDF الوحدة</a>
-            </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 2: الصدوع</div>
+        <div class="lesson-buttons">
+          <a href="https://www.joacademy.com/ar/online-exams/4393" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+          <a href="pdf/اختبار الدرس الثاني- الوحدة الثانية .pdf" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 3: الطيات</div>
+        <div class="lesson-buttons">
+          <a href="https://www.joacademy.com/ar/online-exams/4398" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+          <a href="pdf/اختبار الطيات.pdf" class="btn btn-pdf" target="_blank">PDF</a>
+        </div>
+      </div>
     </div>
+
+    <div class="unit-footer">
+      <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
+      <a href="#" class="btn btn-pdf" target="_blank">PDF الوحدة</a>
+    </div>
+  </div>
+
+  <!-- الوحدة 3 -->
+  <div class="unit-card">
+    <div class="unit-header">
+      <div>
+        <div class="unit-title">الوحدة 3: الصفائح التكتونية</div>
+        <div class="unit-meta">3 دروس + امتحان وحدة كامل</div>
+      </div>
+      <div class="unit-tag">الصفائح التكتونية</div>
+    </div>
+
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-title">الدرس 1: انجراف القارات</div>
+        <div class="lesson-buttons">
+          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 2: توسع قاع المحيط</div>
+        <div class="lesson-buttons">
+          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 3: حدود الصفائح</div>
+        <div class="lesson-buttons">
+          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-footer">
+      <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
+      <a href="#" class="btn btn-pdf" target="_blank">PDF الوحدة</a>
+    </div>
+  </div>
+
+  <!-- الوحدة 4 -->
+  <div class="unit-card">
+    <div class="unit-header">
+      <div>
+        <div class="unit-title">الوحدة 4: الاستكشاف الجيولوجي</div>
+        <div class="unit-meta">3 دروس + امتحان وحدة كامل</div>
+      </div>
+      <div class="unit-tag">الاستكشاف الجيولوجي</div>
+    </div>
+
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-title">الدرس 1: الخرائط الجيولوجية</div>
+        <div class="lesson-buttons">
+          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 2: طرائق الاستكشاف الجيولوجي</div>
+        <div class="lesson-buttons">
+          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 3: تعدين الخامات المعدنية وأثره على البيئة</div>
+        <div class="lesson-buttons">
+          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
+          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-footer">
+      <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
+      <a href="#" class="btn btn-pdf" target="_blank">PDF الوحدة</a>
+    </div>
+  </div>
 
 </div>
 
+<!-- Three.js + معادلات -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 <script>
-function toggleUnit(element) {
-    const content = element.nextElementSibling;
-    const arrow = element.querySelector('span');
-    if(content.style.display === "block") {
-        content.style.display = "none";
-        arrow.textContent = "▼";
-    } else {
-        content.style.display = "block";
-        arrow.textContent = "▲";
+  // نجوم الخلفية
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true, canvas:document.getElementById('stars-canvas') });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  function createStars(){
+    const geo = new THREE.BufferGeometry();
+    const count = 2000;
+    const pos = [];
+    for(let i=0;i<count;i++){
+      pos.push((Math.random()-0.5)*2000);
+      pos.push((Math.random()-0.5)*2000);
+      pos.push((Math.random()-0.5)*2000);
     }
-}
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+    const mat = new THREE.PointsMaterial({color:0xffffff,size:1});
+    return new THREE.Points(geo,mat);
+  }
+
+  const stars = createStars();
+  scene.add(stars);
+  camera.position.set(0,0,5);
+
+  function animateStars(){
+    requestAnimationFrame(animateStars);
+    stars.rotation.y += 0.0005;
+    renderer.render(scene,camera);
+  }
+  animateStars();
+
+  window.addEventListener('resize',()=>{
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  
+
+  function animateEquations(){
+    eqSpans.forEach(obj=>{
+      let top = parseFloat(obj.span.style.top);
+      let left = parseFloat(obj.span.style.left);
+
+      top -= obj.speedY;
+      left += obj.speedX;
+
+      if(top < -50) top = window.innerHeight + 50;
+      if(left < -80) left = window.innerWidth + 50;
+      if(left > window.innerWidth + 80) left = -50;
+
+      obj.span.style.top = top + 'px';
+      obj.span.style.left = left + 'px';
+    });
+    requestAnimationFrame(animateEquations);
+  }
+  animateEquations();
 </script>
 
 </body>
