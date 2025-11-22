@@ -25,7 +25,6 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 25px;
       padding: 30px;
-      direction: rtl;
     }
 
     .card {
@@ -34,7 +33,6 @@
       padding: 20px;
       box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
       transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
     }
 
     .card:hover {
@@ -53,9 +51,15 @@
       margin-bottom: 15px;
     }
 
+    h3 {
+      color: #00e0ff;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
     .video-wrapper {
       position: relative;
-      padding-bottom: 56.25%; /* نسبة 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       max-width: 100%;
@@ -71,6 +75,7 @@
       width: 100%;
       height: 100%;
       border: none;
+      border-radius: 12px;
     }
 
     .back-btn {
@@ -99,24 +104,22 @@
   <h1>📡 البثوث العلمية</h1>
 
   <div class="container">
-    
+
     <!-- 🟢 التغير المناخي -->
     <div class="card">
       <div class="icon">🌍</div>
       <h2>التغير المناخي</h2>
-      
+
+      <!-- البث الأول -->
+      <h3>🎥 البث الأول</h3>
       <div class="video-wrapper">
-        <iframe 
-          src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100067791346419%2Fvideos%2F1857460042320674%2F&show_text=false&width=560&t=0" 
-          allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/6L8y9MPA4L0?si=ZtXjF9ktlI5k0MqC" allowfullscreen></iframe>
       </div>
 
+      <!-- البث الثاني -->
+      <h3>🎥 البث الثاني</h3>
       <div class="video-wrapper">
-        <iframe 
-          src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100067791346419%2Fvideos%2F1125634472572670%2F&show_text=false&width=560&t=0" 
-          allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/uFMk3ZCZEW4?si=OOWHpkdjb5j2VqyT" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -126,35 +129,21 @@
       <h2>التراكيب الجيولوجية</h2>
 
       <!-- البث الأول -->
+      <h3>🎥 البث الأول</h3>
       <div class="video-wrapper">
-        <iframe 
-          src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100067791346419%2Fvideos%2F1286311466583310%2F&show_text=false&width=560&t=0" 
-          width="560" height="314" 
-          style="border:none;overflow:hidden" 
-          scrolling="no" frameborder="0" 
-          allowfullscreen="true" 
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/cqczibAzIfg?si=CpjlI4D1sFolFgBq" allowfullscreen></iframe>
       </div>
 
       <!-- البث الثاني -->
+      <h3>🎥 البث الثاني</h3>
       <div class="video-wrapper">
-        <iframe 
-          src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100067791346419%2Fvideos%2F1149974779987197%2F&show_text=false&width=560&t=0" 
-          width="560" height="314" 
-          style="border:none;overflow:hidden" 
-          scrolling="no" frameborder="0" 
-          allowfullscreen="true" 
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/re6ztSYtjyo?si=szQ65tOGlMKclHQZ" allowfullscreen></iframe>
       </div>
 
       <!-- البث الثالث -->
+      <h3>🎥 البث الثالث</h3>
       <div class="video-wrapper">
-        <iframe 
-          src="https://www.facebook.com/plugins/video.php?height=314&href=رابط_الفيديو_الثالث&show_text=false&width=560&t=0" 
-          allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/nuzBjPHzTGg" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -162,30 +151,16 @@
     <div class="card">
       <div class="icon">🌋</div>
       <h2>الصفائح التكتونية</h2>
-      <div class="video-wrapper">
-        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=رابط_الفيديو_الأول&show_text=false&width=560&t=0" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=رابط_الفيديو_الثاني&show_text=false&width=560&t=0" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=رابط_الفيديو_الثالث&show_text=false&width=560&t=0" allowfullscreen></iframe>
-      </div>
+
+      <h3>لا يوجد بثوث يوتيوب لهذه الوحدة حتى الآن</h3>
     </div>
 
     <!-- 🧭 الاستكشاف الجيولوجي -->
     <div class="card">
       <div class="icon">🧭</div>
       <h2>الاستكشاف الجيولوجي</h2>
-      <div class="video-wrapper">
-        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=رابط_الفيديو_الأول&show_text=false&width=560&t=0" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=رابط_الفيديو_الثاني&show_text=false&width=560&t=0" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=رابط_الفيديو_الثالث&show_text=false&width=560&t=0" allowfullscreen></iframe>
-      </div>
+
+      <h3>لا يوجد بثوث يوتيوب لهذه الوحدة حتى الآن</h3>
     </div>
 
   </div>
