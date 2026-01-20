@@ -1,173 +1,176 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>GeoCode | البثوث العلمية</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: "Cairo", sans-serif;
-      background: radial-gradient(circle at top, #00111a, #000814);
-      color: #fff;
-      text-align: center;
-      direction: rtl;
-    }
+<meta charset="UTF-8">
+<title>GeoCode | البثوث العلمية</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    h1 {
-      color: #00f0ff;
-      text-shadow: 0 0 15px #00f0ff;
-      margin: 20px;
-    }
+<!-- Cairo Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      padding: 30px;
-    }
+<style>
+body{
+  margin:0;
+  font-family:"Cairo",sans-serif;
+  background:radial-gradient(circle at top,#00111a,#000814);
+  color:#fff;
+  text-align:center;
+}
 
-    .card {
-      background: rgba(0, 20, 40, 0.8);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+h1{
+  color:#00f0ff;
+  text-shadow:0 0 15px #00f0ff;
+  margin:20px;
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 40px rgba(0, 255, 255, 0.7);
-    }
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+  padding:30px;
+}
 
-    .icon {
-      font-size: 50px;
-      margin-bottom: 10px;
-    }
+.card{
+  background:rgba(0,20,40,.8);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 0 25px rgba(0,255,255,.3);
+  transition:.3s;
+}
 
-    h2 {
-      color: #00e0ff;
-      text-shadow: 0 0 10px #00e0ff;
-      margin-bottom: 15px;
-    }
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 40px rgba(0,255,255,.7);
+}
 
-    h3 {
-      color: #00e0ff;
-      margin-top: 10px;
-      font-size: 20px;
-    }
+.icon{
+  font-size:48px;
+  margin-bottom:10px;
+}
 
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      max-width: 100%;
-      margin-bottom: 15px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-    }
+h2{
+  color:#00e0ff;
+  text-shadow:0 0 10px #00e0ff;
+  margin-bottom:10px;
+}
 
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 12px;
-    }
+h3{
+  color:#00e0ff;
+  margin:10px 0;
+  font-size:18px;
+}
 
-    .back-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: rgba(0, 200, 255, 0.2);
-      padding: 10px 20px;
-      border-radius: 25px;
-      color: #00f0ff;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 0 10px #00f0ff;
-      transition: 0.3s;
-    }
+.video-wrapper{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  overflow:hidden;
+  border-radius:14px;
+  box-shadow:0 0 15px rgba(0,255,255,.4);
+  margin-bottom:15px;
+}
 
-    .back-btn:hover {
-      background: rgba(0, 200, 255, 0.4);
-      box-shadow: 0 0 20px #00f0ff;
-    }
-  </style>
+.video-wrapper iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  border-radius:14px;
+}
+
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  background:rgba(0,200,255,.25);
+  padding:10px 18px;
+  border-radius:25px;
+  color:#00f0ff;
+  text-decoration:none;
+  box-shadow:0 0 10px #00f0ff;
+}
+</style>
 </head>
+
 <body>
 
-  <a href="GEO.html" class="back-btn">⬅</a>
-  <h1>📡 البثوث العلمية</h1>
+<a href="GEO.html" class="back-btn">⬅</a>
+<h1>📡 البثوث العلمية</h1>
 
-  <div class="container">
+<div class="container">
 
-    <!-- 🟢 التغير المناخي -->
-    <div class="card">
-      <div class="icon">🌍</div>
-      <h2>التغير المناخي</h2>
+<!-- 🛢️ الوقود الأحفوري -->
+<div class="card">
+  <div class="icon">🛢️</div>
+  <h2>الوقود الأحفوري</h2>
 
-      <!-- البث الأول -->
-      <h3>🎥 البث الأول</h3>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/6L8y9MPA4L0?si=ZtXjF9ktlI5k0MqC" allowfullscreen></iframe>
-      </div>
-
-      <!-- البث الثاني -->
-      <h3>🎥 البث الثاني</h3>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/uFMk3ZCZEW4?si=OOWHpkdjb5j2VqyT" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <!-- 🟣 التراكيب الجيولوجية -->
-    <div class="card">
-      <div class="icon">⛰️</div>
-      <h2>التراكيب الجيولوجية</h2>
-
-      <!-- البث الأول -->
-      <h3>🎥 البث الأول</h3>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/cqczibAzIfg?si=CpjlI4D1sFolFgBq" allowfullscreen></iframe>
-      </div>
-
-      <!-- البث الثاني -->
-      <h3>🎥 البث الثاني</h3>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/re6ztSYtjyo?si=szQ65tOGlMKclHQZ" allowfullscreen></iframe>
-      </div>
-
-      <!-- البث الثالث -->
-      <h3>🎥 البث الثالث</h3>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/nuzBjPHzTGg" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <!-- 🔴 الصفائح التكتونية -->
-    <div class="card">
-      <div class="icon">🌋</div>
-      <h2>الصفائح التكتونية</h2>
-
-      <!-- البث الأول -->
-      <h3>🎥 البث الأول</h3>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/Dcz75qgeWt4?si=oVx9l9hLPi7bikt4" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <!-- 🧭 الاستكشاف الجيولوجي -->
-    <div class="card">
-      <div class="icon">🧭</div>
-      <h2>الاستكشاف الجيولوجي</h2>
-
-      <h3>لا يوجد بثوث لهذه الوحدة حتى الآن</h3>
-    </div>
-
+  <h3>🎥 البث الأول</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/6L8y9MPA4L0" allowfullscreen></iframe>
   </div>
 
+  <h3>🎥 البث الثاني</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/uFMk3ZCZEW4" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- ⛰️ التراكيب الجيولوجية -->
+<div class="card">
+  <div class="icon">⛰️</div>
+  <h2>التراكيب الجيولوجية</h2>
+
+  <h3>🎥 البث الأول</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/cqczibAzIfg" allowfullscreen></iframe>
+  </div>
+
+  <h3>🎥 البث الثاني</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/re6ztSYtjyo" allowfullscreen></iframe>
+  </div>
+
+  <h3>🎥 البث الثالث</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/nuzBjPHzTGg" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- 🌋 الصفائح التكتونية -->
+<div class="card">
+  <div class="icon">🌋</div>
+  <h2>الصفائح التكتونية</h2>
+
+  <h3>🎥 البث الأول</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/Dcz75qgeWt4" allowfullscreen></iframe>
+  </div>
+
+  <h3>🎥 البث الثاني — حل أسئلة كتاب التمارين</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/su_NoMhAsss" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- 🧭 الاستكشاف الجيولوجي -->
+<div class="card">
+  <div class="icon">🧭</div>
+  <h2>الاستكشاف الجيولوجي</h2>
+
+  <h3>🎥 البث الأول</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/8uQhWDpfqqM" allowfullscreen></iframe>
+  </div>
+
+  <h3>🎥 البث الثاني</h3>
+  <div class="video-wrapper">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/fO0OLoxbB0k" allowfullscreen></iframe>
+  </div>
+</div>
+
+</div>
 </body>
 </html>

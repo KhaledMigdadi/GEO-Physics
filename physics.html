@@ -1,171 +1,153 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <title>Dynamo | فيزياء</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Cairo', sans-serif;
-    height: 100%;
-    overflow-x: hidden;
-    color: white;
-    background: #070b15;
-  }
+:root{
+  --bg:#070b15;
+  --glass:rgba(0,0,0,0.5);
+  --cyan:#00d8ff;
+  --cyan2:#0099ff;
+}
 
-  canvas { position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; }
+*{ box-sizing:border-box; }
 
-  header {
-    padding: 15px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    background: rgba(0,0,0,0.5);
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+body,html{
+  margin:0;
+  padding:0;
+  font-family:'Cairo',sans-serif;
+  min-height:100%;
+  background:var(--bg);
+  color:#fff;
+  overflow-x:hidden;
+}
 
-  .back-btn {
-    position: absolute;
-    left: 15px;
-    color: #00d8ff;
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-  }
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
 
-  .back-btn:hover {
-    transform: scale(1.2);
-    color: yellow;
-  }
+header{
+  padding:15px;
+  background:var(--glass);
+  text-align:center;
+  font-weight:700;
+  position:relative;
+  z-index:2;
+}
 
-  .hero {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 50px 20px;
-  }
+.back-btn{
+  position:absolute;
+  left:15px;
+  color:var(--cyan);
+  font-size:1.5rem;
+  text-decoration:none;
+}
+.back-btn:hover{color:yellow;}
 
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #00d8ff;
-  }
+.hero{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:50px 20px;
+}
 
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-  }
+.hero h1{
+  color:var(--cyan);
+  font-size:2.4rem;
+  margin-bottom:10px;
+}
 
-  .buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
+.hero p{
+  font-size:1.1rem;
+  margin-bottom:30px;
+}
 
-  .btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    background: linear-gradient(45deg, #00d8ff, #0099ff);
-    color: black;
-    text-decoration: none;
-    flex: 1 1 250px; /* حتى يلتفوا تلقائي */
-    justify-content: center;
-  }
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
 
-  .btn i { font-size: 1.3rem; animation: pulse 1.5s infinite; }
+.btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 22px;
+  border-radius:12px;
+  background:linear-gradient(45deg,var(--cyan),var(--cyan2));
+  color:#000;
+  text-decoration:none;
+  font-weight:700;
+  font-size:1.05rem;
+  flex:1 1 240px;
+  justify-content:center;
+  min-height:52px;
+  transition:0.2s;
+}
 
-  .btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 216, 255, 0.4);
-  }
+.btn i{
+  font-size:1.25rem;
+}
 
-  @keyframes pulse {
-    0% { transform: scale(1); color: #fff; }
-    50% { transform: scale(1.3); color: yellow; }
-    100% { transform: scale(1); color: #fff; }
-  }
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,216,255,.35);
+}
 
-  /* معرض الصور */
-  .slider {
-    margin: 40px auto;
-    width: 90%;
-    max-width: 1000px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    border-radius: 12px;
-    position: relative;
-    z-index: 2;
-    -webkit-overflow-scrolling: touch;
-  }
+.slider{
+  margin:40px auto;
+  width:92%;
+  max-width:1000px;
+  overflow-x:auto;
+  z-index:2;
+  position:relative;
+}
 
-  .slider-track {
-    display: flex;
-    gap: 15px;
-  }
+.slider-track{
+  display:flex;
+  gap:15px;
+}
 
-  .slider-track img {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,216,255,0.5);
-    flex-shrink: 0;
-  }
+.slider-track img{
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,216,255,.5);
+}
 
-  footer {
-    margin-top: 40px;
-    padding: 15px;
-    font-size: 0.9rem;
-    background: rgba(0, 0, 0, 0.5);
-    position: relative;
-    z-index: 2;
-    text-align: center;
-  }
+footer{
+  margin-top:40px;
+  padding:15px;
+  background:var(--glass);
+  text-align:center;
+  font-size:.95rem;
+  z-index:2;
+  position:relative;
+}
 
-  /* معادلات متطايرة */
-  .equation {
-    position: absolute;
-    color: rgba(0,216,255,0.3);
-    font-size: 18px;
-    user-select: none;
-    z-index: 1;
-  }
+@media(max-width:768px){
+  .hero h1{font-size:2rem;}
+  .btn{font-size:.95rem;flex:1 1 200px;}
+  .slider-track img{width:180px;height:180px;}
+}
 
-  /* 📱 تجاوب للشاشات الصغيرة */
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 2rem; }
-    .hero p { font-size: 1rem; }
-    .btn { font-size: 1rem; padding: 12px 18px; }
-    .slider-track img { width: 180px; height: 180px; }
-  }
-
-  @media (max-width: 480px) {
-    .hero { padding: 30px 10px; }
-    .hero h1 { font-size: 1.6rem; }
-    .hero p { font-size: 0.9rem; }
-    .btn { font-size: 0.9rem; padding: 10px 15px; }
-    .slider-track img { width: 150px; height: 150px; }
-  }
+@media(max-width:480px){
+  .hero h1{font-size:1.6rem;}
+  .slider-track img{width:150px;height:150px;}
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -178,24 +160,59 @@
   <p>دخولك هون هو خطوة من خطوات بناء مستقبلك. هون رح نخلي الفيزياء ممتعة وسهلة… والفل إلنا بإذن الله</p>
 
   <div class="buttons">
-    <a href="examsphysics.html" class="btn"><i class="fas fa-file-alt"></i> الامتحانات</a>
-    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9uhDdhM7Hb9duViGKyLeUJi&si=glyenlw-QAkKdgs8" class="btn"><i class="fas fa-video"></i> البثوث المباشرة</a>
-    <a href="https://chat.whatsapp.com/Be1WxR4wm8EHxnfzHBZkWt?mode=ems_copy_t" class="btn"><i class="fab fa-whatsapp"></i> جروب الواتساب</a>
-    <a href="https://www.facebook.com/groups/213022146432749/?ref=share&mibextid=NSMWBT" class="btn"><i class="fab fa-facebook"></i> جروب الفيسبوك</a>
-    <a href="https://bit.ly/3RLv5Yy" class="btn"><i class="fas fa-credit-card"></i> شراء البطاقة</a>
-    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9v1viy8fQoQRSfbtPWMB2DI&si=z5Ngj5lgjkFCUTmb" class="btn"><i class="fas fa-graduation-cap"></i> حصص مجانية</a>
-    <a href="bagphysics.html" class="btn"><i class="fas fa-briefcase"></i> الحقيبة الإلكترونية</a>
+
+    <a href="examsphysics.html" class="btn">
+      <i class="fas fa-file-alt"></i> الامتحانات
+    </a>
+
+    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9uhDdhM7Hb9duViGKyLeUJi"
+       target="_blank" class="btn">
+      <i class="fas fa-video"></i> البثوث المباشرة
+    </a>
+
+    <a href="https://chat.whatsapp.com/Be1WxR4wm8EHxnfzHBZkWt"
+       target="_blank" class="btn">
+      <i class="fab fa-whatsapp"></i> جروب الواتساب
+    </a>
+
+    <a href="https://www.facebook.com/groups/213022146432749/"
+       target="_blank" class="btn">
+      <i class="fab fa-facebook"></i> جروب الفيسبوك
+    </a>
+
+    <a href="https://bit.ly/3RLv5Yy" target="_blank" class="btn">
+      <i class="fas fa-credit-card"></i> شراء البطاقة</a>
+
+    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9v1viy8fQoQRSfbtPWMB2DI"
+       target="_blank" class="btn">
+      <i class="fas fa-graduation-cap"></i> حصص مجانية
+    </a>
+
+    <a href="bagphysics.html" class="btn">
+      <i class="fas fa-briefcase"></i> الحقيبة الإلكترونية
+    </a>
+
+    <!-- ✅ زر حل سؤال (يوتيوب) -->
+    <a href="https://youtu.be/aqT9w1i2XMw"
+       target="_blank" class="btn">
+      <i class="fas fa-play-circle"></i> حل سؤال
+    </a>
+
+    <!-- ✅ مراجعة الفيزياء -->
+    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9uHqmbSepL-Lvrhr-R4grw4"
+       target="_blank" class="btn">
+      <i class="fas fa-list-ul"></i> مراجعة الفيزياء
+    </a>
 
   </div>
 
-  <!-- معرض الصور -->
   <div class="slider">
     <div class="slider-track">
-      <img src="image/spher.jpg" >
-      <img src="image/dumpls.jpg" >
+      <img src="image/spher.jpg">
+      <img src="image/dumpls.jpg">
       <img src="image/splash.jpg">
-      <img src="image/experment.jpg" >
-      <img src="image/heart.jpg" >
+      <img src="image/experment.jpg">
+      <img src="image/heart.jpg">
     </div>
   </div>
 </section>
@@ -204,83 +221,37 @@
   جميع الحقوق محفوظة © 2025 | الأستاذ خالد مقدادي
 </footer>
 
-<!-- Three.js + نجوم + معادلات -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 <script>
-  // النجوم
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,1000);
+const renderer=new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(innerWidth,innerHeight);
+document.body.appendChild(renderer.domElement);
 
-  function createStars() {
-    const geo = new THREE.BufferGeometry();
-    const count = 2000;
-    const pos = [];
-    for(let i=0;i<count;i++){
-      pos.push((Math.random()-0.5)*2000);
-      pos.push((Math.random()-0.5)*2000);
-      pos.push((Math.random()-0.5)*2000);
-    }
-    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
-    return new THREE.Points(geo,new THREE.PointsMaterial({color:0xffffff}));
-  }
-  const stars = createStars();
-  scene.add(stars);
+const geo=new THREE.BufferGeometry();
+const stars=[];
+for(let i=0;i<2000;i++){
+  stars.push((Math.random()-.5)*2000,(Math.random()-.5)*2000,(Math.random()-.5)*2000);
+}
+geo.setAttribute('position',new THREE.Float32BufferAttribute(stars,3));
+const starMesh=new THREE.Points(geo,new THREE.PointsMaterial({color:0xffffff}));
+scene.add(starMesh);
+camera.position.z=5;
 
-  camera.position.set(0,0,5);
+function animate(){
+  requestAnimationFrame(animate);
+  starMesh.rotation.y+=0.0005;
+  renderer.render(scene,camera);
+}
+animate();
 
-  function animateStars() {
-    requestAnimationFrame(animateStars);
-    stars.rotation.y += 0.0005;
-    renderer.render(scene,camera);
-  }
-  animateStars();
-
-  window.addEventListener("resize",()=>{
-    camera.aspect = window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-
-  // المعادلات المتطايرة
-  const equations = ['E=mc²','F=ma','V=IR','p=mv','λ=h/p','ΔE=hf','a²+b²=c²','F=q(E+v×B)'];
-  const eqSpans = [];
-
-  for(let i=0;i<50;i++){
-    const span = document.createElement('span');
-    span.className = 'equation';
-    span.innerText = equations[Math.floor(Math.random()*equations.length)];
-    span.style.left = Math.random() * window.innerWidth + 'px';
-    span.style.top = Math.random() * window.innerHeight + 'px';
-    span.style.fontSize = (12 + Math.random()*22)+'px';
-    span.style.opacity = (0.2 + Math.random()*0.4);
-    document.body.appendChild(span);
-
-    const speedX = (Math.random()-0.5) * 0.3;
-    const speedY = 0.1 + Math.random()*0.3;
-    eqSpans.push({span, speedX, speedY});
-  }
-
-  function animateEquations() {
-    eqSpans.forEach(obj=>{
-      let top = parseFloat(obj.span.style.top);
-      let left = parseFloat(obj.span.style.left);
-
-      top -= obj.speedY;
-      left += obj.speedX;
-
-      if(top < -50) top = window.innerHeight + 50;
-      if(left < -50) left = window.innerWidth + 50;
-      if(left > window.innerWidth + 50) left = -50;
-
-      obj.span.style.top = top + 'px';
-      obj.span.style.left = left + 'px';
-    });
-    requestAnimationFrame(animateEquations);
-  }
-  animateEquations();
+addEventListener('resize',()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+});
 </script>
+
 </body>
 </html>

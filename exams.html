@@ -145,7 +145,7 @@
     white-space:nowrap;
   }
 
-  /* LESSONS (بس اسم الدرس + الأزرار) */
+  /* LESSONS */
   .lesson-list{
     display:flex;
     flex-direction:column;
@@ -208,36 +208,6 @@
     box-shadow:0 0 18px rgba(0,245,160,0.7);
   }
 
-  .btn-pdf{
-    background:rgba(148,163,184,0.2);
-    color:#e5e7eb;
-    border:1px solid rgba(148,163,184,0.6);
-  }
-
-  .btn-pdf:hover{
-    background:rgba(148,163,184,0.35);
-  }
-
-  /* FOOTER داخل الوحدة */
-  .unit-footer{
-    margin-top:10px;
-    padding-top:8px;
-    border-top:1px dashed rgba(148,163,184,0.4);
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    justify-content:flex-start;
-  }
-
-  .unit-footer .btn{
-    font-size:0.8rem;
-  }
-
-  .unit-footer .btn-online{
-    background:linear-gradient(135deg,#35a8ff,#00d8ff);
-    color:#020617;
-  }
-
   /* معادلات متطايرة */
   .equation{
     position:absolute;
@@ -259,9 +229,7 @@
 
   @media (max-width:480px){
     .page{ padding:0 10px 28px; }
-    .lesson{
-      padding:9px 9px 7px;
-    }
+    .lesson{ padding:9px 9px 7px; }
     .lesson-buttons .btn{
       flex:1 1 120px;
       text-align:center;
@@ -280,17 +248,16 @@
 </header>
 
 <div class="page">
-  <div class="hero-note">
-  </div>
+  <div class="hero-note"></div>
 
   <!-- الوحدة 1 -->
   <div class="unit-card">
     <div class="unit-header">
       <div>
-        <div class="unit-title">الوحدة 1: التغير المناخي</div>
+        <div class="unit-title">الوحدة 1: الوقود الأحفوري</div>
         <div class="unit-meta">3 دروس + امتحان وحدة كامل</div>
       </div>
-      <div class="unit-tag">الوقود الأحفوري </div>
+      <div class="unit-tag">الوقود الأحفوري</div>
     </div>
 
     <div class="lesson-list">
@@ -298,7 +265,6 @@
         <div class="lesson-title">الدرس 1: الوقود الأحفوري وغازات الدفيئة</div>
         <div class="lesson-buttons">
           <a href="https://www.joacademy.com/ar/online-exams/4227" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
-          <a href="pdf/الوقود الأحفوري وغازات الدفيئة.pdf" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
       </div>
 
@@ -306,7 +272,6 @@
         <div class="lesson-title">الدرس 2: الوقود الأحفوري والتغير المناخي</div>
         <div class="lesson-buttons">
           <a href="https://www.joacademy.com/ar/online-exams/4152" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
-          <a href="pdf/الوقود الأحفوري والتغير المناخي.pdf" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
       </div>
 
@@ -314,14 +279,12 @@
         <div class="lesson-title">الدرس 3: الحد من التغير المناخي والتكيف مع آثاره</div>
         <div class="lesson-buttons">
           <a href="https://www.joacademy.com/ar/online-exams/4254" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
-          <a href="pdf/الحد من التغير المناخي والتكيف مع آثاره.pdf" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
       </div>
     </div>
 
-    <div class="unit-footer">
+    <div class="lesson-buttons" style="margin-top:10px;">
       <a href="https://www.joacademy.com/online-exams/4321" class="btn btn-online" target="_blank">امتحان الوحدة كامل</a>
-      <a href="pdf/ع.أرض اختبار الوحدة الأولى.pdf" class="btn btn-pdf" target="_blank">PDF الوحدة</a>
     </div>
   </div>
 
@@ -340,7 +303,6 @@
         <div class="lesson-title">الدرس 1: تشوه الصخور</div>
         <div class="lesson-buttons">
           <a href="https://www.joacademy.com/ar/online-exams/4379" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
-          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
       </div>
 
@@ -348,7 +310,6 @@
         <div class="lesson-title">الدرس 2: الصدوع</div>
         <div class="lesson-buttons">
           <a href="https://www.joacademy.com/ar/online-exams/4393" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
-          <a href="pdf/اختبار الدرس الثاني- الوحدة الثانية .pdf" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
       </div>
 
@@ -356,14 +317,12 @@
         <div class="lesson-title">الدرس 3: الطيات</div>
         <div class="lesson-buttons">
           <a href="https://www.joacademy.com/ar/online-exams/4398" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
-          <a href="pdf/اختبار الطيات.pdf" class="btn btn-pdf" target="_blank">PDF</a>
         </div>
       </div>
     </div>
 
-    <div class="unit-footer">
-      <a href="https://www.joacademy.com/ar/online-exams/4516" class="btn btn-online">امتحان الوحدة الأولى + الثانية</a>
-      <a href="pdf/اختبار الوحدة الأولى + الثانية (3).pdf" class="btn btn-pdf" target="_blank">PDF الوحدة</a>
+    <div class="lesson-buttons" style="margin-top:10px;">
+      <a href="https://www.joacademy.com/ar/online-exams/4516" class="btn btn-online" target="_blank">امتحان الوحدة الأولى + الثانية</a>
     </div>
   </div>
 
@@ -381,31 +340,27 @@
       <div class="lesson">
         <div class="lesson-title">الدرس 1: انجراف القارات</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4563" class="btn btn-online">امتحان إلكتروني</a>
-          <a href="pdf/الوحدة الثالثة - الدرس الأول (1).pdf" class="btn btn-pdf" target="_blank">PDF</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4563" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 2: توسع قاع المحيط</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4580" class="btn btn-online">امتحان إلكتروني</a>
-          <a href="pdf/الوحدة الثالثة - الدرس الثاني.pdf" class="btn btn-pdf" target="_blank">PDF</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4580" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 3: حدود الصفائح</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4616" class="btn btn-online">امتحان إلكتروني</a>
-          <a href="pdf/الوحدة الثالثة - الدرس الثالث.pdf" class="btn btn-pdf" target="_blank">PDF</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4616" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
     </div>
 
-    <div class="unit-footer">
-      <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
-      <a href="#" class="btn btn-pdf" target="_blank">PDF الوحدة</a>
+    <div class="lesson-buttons" style="margin-top:10px;">
+      <a href="https://www.joacademy.com/ar/online-exams/4636" class="btn btn-online" target="_blank">امتحان أول 3 وحد</a>
     </div>
   </div>
 
@@ -414,46 +369,19 @@
     <div class="unit-header">
       <div>
         <div class="unit-title">الوحدة 4: الاستكشاف الجيولوجي</div>
-        <div class="unit-meta">3 دروس + امتحان وحدة كامل</div>
+        <div class="unit-meta">  امتحان وحدة كامل</div>
       </div>
       <div class="unit-tag">الاستكشاف الجيولوجي</div>
     </div>
 
-    <div class="lesson-list">
-      <div class="lesson">
-        <div class="lesson-title">الدرس 1: الخرائط الجيولوجية</div>
-        <div class="lesson-buttons">
-          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
-        </div>
-      </div>
-
-      <div class="lesson">
-        <div class="lesson-title">الدرس 2: طرائق الاستكشاف الجيولوجي</div>
-        <div class="lesson-buttons">
-          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
-        </div>
-      </div>
-
-      <div class="lesson">
-        <div class="lesson-title">الدرس 3: تعدين الخامات المعدنية وأثره على البيئة</div>
-        <div class="lesson-buttons">
-          <a href="#" class="btn btn-online">امتحان إلكتروني</a>
-          <a href="#" class="btn btn-pdf" target="_blank">PDF</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="unit-footer">
-      <a href="#" class="btn btn-online">امتحان الوحدة كامل</a>
-      <a href="#" class="btn btn-pdf" target="_blank">PDF الوحدة</a>
+    <div class="lesson-buttons" style="margin-top:10px;">
+      <a href="https://www.joacademy.com/ar/online-exams/4664" class="btn btn-online" target="_blank">امتحان الوحدة كامل</a>
     </div>
   </div>
 
 </div>
 
-<!-- Three.js + معادلات -->
+<!-- Three.js -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 <script>
   // نجوم الخلفية
@@ -492,27 +420,6 @@
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
-
-  
-
-  function animateEquations(){
-    eqSpans.forEach(obj=>{
-      let top = parseFloat(obj.span.style.top);
-      let left = parseFloat(obj.span.style.left);
-
-      top -= obj.speedY;
-      left += obj.speedX;
-
-      if(top < -50) top = window.innerHeight + 50;
-      if(left < -80) left = window.innerWidth + 50;
-      if(left > window.innerWidth + 80) left = -50;
-
-      obj.span.style.top = top + 'px';
-      obj.span.style.left = left + 'px';
-    });
-    requestAnimationFrame(animateEquations);
-  }
-  animateEquations();
 </script>
 
 </body>
