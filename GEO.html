@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>GeoCode | علوم الأرض</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- خط وأيقونات -->
+
+  <!-- الخط والأيقونات -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -130,97 +131,110 @@
       z-index: 2;
       text-align: center;
     }
+
+    @media (max-width: 768px) {
+      .video-container iframe {
+        width: 95%;
+        height: 300px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
-    🌍 موقع الأستاذ خالد مقدادي | علوم الأرض
-  </header>
 
-  <section class="hero">
-    <h1>علوم الأرض</h1>
-    <p>كل ما تحتاجه من امتحانات، بثوث مباشرة، جروبات، وبطاقات الدخول.</p>
+<header>
+  <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+  🌍 موقع الأستاذ خالد مقدادي | علوم الأرض
+</header>
 
-    <div class="buttons">
-      <a href="exams.html" class="btn"><i class="fas fa-file-alt"></i> الامتحانات</a>
-      <a href="live.html" class="btn"><i class="fas fa-video"></i> البثوث المباشرة</a>
-      <a href="https://chat.whatsapp.com/CQbLTgE370gKtZDfJJ50Nb?mode=ems_copy_t" class="btn"><i class="fab fa-whatsapp"></i> جروب الواتساب</a>
-      <a href="https://www.facebook.com/groups/213022146432749/?ref=share&mibextid=NSMWBT" class="btn"><i class="fab fa-facebook"></i> جروب الفيسبوك</a>
-      <a href="https://bit.ly/3RLv5Yy" class="btn"><i class="fas fa-credit-card"></i> شراء البطاقة</a>
-      <a href="https://youtube.com/playlist?list=PL6ogumG5qc9sRGWld1kjlQM8r1tkzBHm1&si=EdQMjPX40-a_zxyl" class="btn"><i class="fas fa-graduation-cap"></i> حصص مجانية</a>
-      <a href="https://youtube.com/playlist?list=PL6ogumG5qc9uCi9-KEvFOtRQ5jpcAhoag&si=0DKk4amYxFUBtiqZ" class="btn"><i class="fas fa-volcano"></i> برنامج GEO CODE</a>
-      <a href="bagGeo.html" class="btn"><i class="fas fa-briefcase"></i> الحقيبة الإلكترونية</a> 
+<section class="hero">
+  <h1>علوم الأرض</h1>
+  <p>كل ما تحتاجه من امتحانات، بثوث مباشرة، جروبات، وبطاقات الدخول.</p>
 
-    </div>
+  <div class="buttons">
+    <a href="exams.html" class="btn"><i class="fas fa-file-alt"></i> الامتحانات</a>
+    <a href="live.html" class="btn"><i class="fas fa-video"></i> البثوث المباشرة</a>
+    <a href="https://chat.whatsapp.com/CQbLTgE370gKtZDfJJ50Nb?mode=ems_copy_t" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> جروب الواتساب</a>
+    <a href="https://www.facebook.com/groups/213022146432749/?ref=share&mibextid=NSMWBT" class="btn" target="_blank"><i class="fab fa-facebook"></i> جروب الفيسبوك</a>
+    <a href="https://bit.ly/3RLv5Yy" class="btn" target="_blank"><i class="fas fa-credit-card"></i> شراء البطاقة</a>
+    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9sRGWld1kjlQM8r1tkzBHm1&si=EdQMjPX40-a_zxyl" class="btn" target="_blank"><i class="fas fa-graduation-cap"></i> حصص مجانية</a>
+    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9uCi9-KEvFOtRQ5jpcAhoag&si=0DKk4amYxFUBtiqZ" class="btn" target="_blank"><i class="fas fa-volcano"></i> برنامج GEO CODE</a>
+    <a href="bagGeo.html" class="btn"><i class="fas fa-briefcase"></i> الحقيبة الإلكترونية</a>
 
-    <!-- فيديو يوتيوب -->
-    <div class="video-container">
-      <iframe 
-        src="https://www.youtube.com/embed/Hc_TYPDqL_Y" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  </section>
+    <!-- ✅ زر جديد -->
+    <a href="https://youtube.com/playlist?list=PL6ogumG5qc9vErIYrsfEwMzFoTGXfddJc&si=9CCO-oKAfT7dqQ9E"
+       class="btn" target="_blank">
+      <i class="fas fa-list-check"></i> مراجعة الفصل الأول
+    </a>
+  </div>
 
-  <footer>
-    جميع الحقوق محفوظة © 2025 | الأستاذ خالد مقدادي
-  </footer>
+  <!-- فيديو يوتيوب -->
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/Hc_TYPDqL_Y"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
 
-  <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-  <script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+<footer>
+  جميع الحقوق محفوظة © 2025 | الأستاذ خالد مقدادي
+</footer>
+
+<!-- Three.js -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+<script>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 1));
+
+  const texture = new THREE.TextureLoader().load("https://threejs.org/examples/textures/earth_atmos_2048.jpg");
+  const earth = new THREE.Mesh(
+    new THREE.SphereGeometry(1.5, 64, 64),
+    new THREE.MeshStandardMaterial({ map: texture })
+  );
+  scene.add(earth);
+
+  function createStars() {
+    const geo = new THREE.BufferGeometry();
+    const count = 2000;
+    const pos = [];
+    for (let i = 0; i < count; i++) {
+      pos.push((Math.random() - 0.5) * 2000);
+      pos.push((Math.random() - 0.5) * 2000);
+      pos.push((Math.random() - 0.5) * 2000);
+    }
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    return new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xffffff }));
+  }
+
+  const stars = createStars();
+  scene.add(stars);
+
+  camera.position.set(0, 0, 5);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    earth.rotation.y += 0.002;
+    stars.rotation.y += 0.0005;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+  });
+</script>
 
-    // إضاءة
-    scene.add(new THREE.AmbientLight(0xffffff, 1));
-
-    // كرة الأرض
-    const texture = new THREE.TextureLoader().load("https://threejs.org/examples/textures/earth_atmos_2048.jpg");
-    const earth = new THREE.Mesh(
-      new THREE.SphereGeometry(1.5, 64, 64),
-      new THREE.MeshStandardMaterial({ map: texture })
-    );
-    scene.add(earth);
-
-    // نجوم خلفية
-    function createStars() {
-      const geo = new THREE.BufferGeometry();
-      const count = 2000;
-      const pos = [];
-      for(let i=0;i<count;i++){
-        pos.push((Math.random()-0.5)*2000);
-        pos.push((Math.random()-0.5)*2000);
-        pos.push((Math.random()-0.5)*2000);
-      }
-      geo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
-      return new THREE.Points(geo,new THREE.PointsMaterial({color:0xffffff}));
-    }
-    const stars = createStars();
-    scene.add(stars);
-
-    camera.position.set(0,0,5);
-
-    function animate() {
-      requestAnimationFrame(animate);
-      earth.rotation.y += 0.002;
-      stars.rotation.y += 0.0005;
-      renderer.render(scene,camera);
-    }
-    animate();
-
-    window.addEventListener("resize",()=>{
-      camera.aspect=window.innerWidth/window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
 </body>
 </html>
