@@ -179,6 +179,7 @@
     display:flex;
     flex-wrap:wrap;
     gap:6px;
+    align-items:center;
   }
 
   .btn{
@@ -208,7 +209,7 @@
     box-shadow:0 0 18px rgba(0,245,160,0.7);
   }
 
-  /* فصل جديد (تمييز خفيف للفصل الثاني) */
+  /* فصل جديد */
   .semester-divider{
     margin:28px 0 18px;
     padding:12px 16px;
@@ -224,14 +225,10 @@
       inset 0 0 10px rgba(0,216,255,0.15);
   }
 
-  /* معادلات متطايرة */
-  .equation{
-    position:absolute;
-    color:rgba(0,216,255,0.35);
-    font-size:16px;
-    user-select:none;
-    z-index:1;
-    pointer-events:none;
+  /* نص القفل */
+  .lock-note{
+    font-size:0.8rem;
+    color:var(--muted);
   }
 
   /* RESPONSIVE */
@@ -395,6 +392,21 @@
     </div>
   </div>
 
+  <!-- امتحان تجريبي (قبل الفصل الثاني) -->
+  <div class="unit-card">
+    <div class="unit-header">
+      <div>
+        <div class="unit-title">امتحان تجريبي شامل</div>
+        <div class="unit-meta">مراجعة شاملة قبل الفصل الثاني</div>
+      </div>
+      <div class="unit-tag">تجريبي</div>
+    </div>
+
+    <div class="lesson-buttons" style="margin-top:10px;">
+      <a href="https://www.joacademy.com/ar/online-exams/4811" class="btn btn-online" target="_blank" rel="noopener noreferrer">دخول الامتحان التجريبي</a>
+    </div>
+  </div>
+
   <!-- الفصل الثاني -->
   <div class="semester-divider">🌌 الفصل الثاني: المجرة ونشأة الكون</div>
 
@@ -419,27 +431,65 @@
       <div class="lesson">
         <div class="lesson-title">الدرس 2: توسع الكون</div>
         <div class="lesson-buttons">
-          <a href="#" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4804" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 3: تسارع توسع الكون</div>
         <div class="lesson-buttons">
-          <a href="#" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4816" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 4: نظريات نشأة الكون</div>
         <div class="lesson-buttons">
-          <a href="#" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <!-- الزر مخفي قبل الساعة 4 -->
+          <a id="lesson4Exam"
+             href="https://www.joacademy.com/ar/online-exams/4843"
+             class="btn btn-online"
+             target="_blank"
+             rel="noopener noreferrer"
+             style="display:none;">
+            امتحان إلكتروني
+          </a>
+
+          <!-- رسالة القفل تظهر قبل الساعة 4 -->
+          <span id="examLocked" class="lock-note">الامتحان يفتح اليوم الساعة 4:00 مساءً</span>
         </div>
       </div>
     </div>
   </div>
 
 </div>
+
+<!-- ✅ قفل/فتح امتحان الدرس الرابع اليوم الساعة 4 -->
+<script>
+  (function () {
+    function checkExamTime() {
+      const now = new Date();             // وقت جهاز الطالب/المتصفح
+      const openTime = new Date();        // "اليوم" على نفس الجهاز
+      openTime.setHours(16, 0, 0, 0);     // 16:00 = الساعة 4:00
+
+      const examBtn = document.getElementById("lesson4Exam");
+      const lockedText = document.getElementById("examLocked");
+
+      if (!examBtn || !lockedText) return;
+
+      if (now >= openTime) {
+        examBtn.style.display = "inline-flex";
+        lockedText.style.display = "none";
+      } else {
+        examBtn.style.display = "none";
+        lockedText.style.display = "inline";
+      }
+    }
+
+    checkExamTime();
+    setInterval(checkExamTime, 15000); // فحص كل 15 ثانية
+  })();
+</script>
 
 <!-- Three.js -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
