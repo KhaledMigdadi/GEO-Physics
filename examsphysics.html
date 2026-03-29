@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>امتحانات الفيزياء | Dynamo </title>
+<title>امتحانات الفيزياء | Dynamo</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -17,7 +17,6 @@
     overflow-x: hidden;
   }
 
-  /* رأس الصفحة */
   header {
     position: relative;
     background: rgba(255, 255, 255, 0.08);
@@ -50,7 +49,6 @@
     animation: fadeInDown 1s ease;
   }
 
-  /* حركة الدخول */
   @keyframes fadeInDown {
     from {
       opacity: 0;
@@ -62,7 +60,6 @@
     }
   }
 
-  /* الشبكة */
   .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -70,7 +67,6 @@
     padding: 30px;
   }
 
-  /* الكروت */
   .unit {
     background: rgba(255, 255, 255, 0.12);
     border-radius: 20px;
@@ -98,7 +94,6 @@
     font-size: 1.3em;
   }
 
-  /* الأزرار */
   .btns {
     display: flex;
     flex-direction: column;
@@ -106,7 +101,8 @@
     margin-top: 18px;
   }
 
-  .btns a {
+  .btns a,
+  .btns span {
     text-decoration: none;
     color: #141e30;
     background: #fdd835;
@@ -115,6 +111,7 @@
     font-weight: bold;
     transition: 0.3s;
     font-size: 1em;
+    display: block;
   }
 
   .btns a:hover {
@@ -122,7 +119,13 @@
     transform: scale(1.05);
   }
 
-  /* حركة الكروت */
+  .btn-disabled {
+    background: #8b98a7 !important;
+    color: #eef2f7 !important;
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -134,7 +137,6 @@
     }
   }
 
-  /* ذيل الصفحة */
   footer {
     text-align: center;
     padding: 15px;
@@ -143,7 +145,6 @@
     margin-top: 25px;
   }
 
-  /* تجاوب */
   @media (max-width: 600px) {
     header h1 {
       font-size: 1.4em;
@@ -151,7 +152,8 @@
     .unit h2 {
       font-size: 1.1em;
     }
-    .btns a {
+    .btns a,
+    .btns span {
       font-size: 0.95em;
     }
   }
@@ -183,7 +185,7 @@
     <div class="btns">
       <a href="pdf/اختبار الفيزياء شهر ثاني-12 علمي المحور.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> تحميل الامتحان</a>
       <a href="https://www.joacademy.com/ar/online-exams/4452" target="_blank"><i class="fa-solid fa-pen"></i> الامتحان الإلكتروني</a>
-    <a href="pdf/اجابة امتحان الوحدة الاولى والثانية.pdf" target="_blank"><i class="fa-solid fa-book"></i> الحل التفصيلي</a> 
+      <a href="pdf/اجابة امتحان الوحدة الاولى والثانية.pdf" target="_blank"><i class="fa-solid fa-book"></i> الحل التفصيلي</a>
     </div>
   </div>
 
@@ -203,6 +205,15 @@
     <div class="btns">
       <a href="pdf/امتحان نهاية الفصل الأول لمادة الفيزياء - المحور.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> تحميل الامتحان</a>
       <a href="https://www.joacademy.com/ar/online-exams/4674" target="_blank"><i class="fa-solid fa-pen"></i> الامتحان الإلكتروني</a>
+    </div>
+  </div>
+
+  <div class="unit">
+    <i class="fa-solid fa-magnet"></i>
+    <h2>المجال المغناطيسي</h2>
+    <div class="btns">
+      <a href="https://www.joacademy.com/ar/online-exams/4847" target="_blank"><i class="fa-solid fa-pen"></i> امتحان أول درسين</a>
+      <span class="btn-disabled"><i class="fa-solid fa-clock"></i> امتحان الوحدة كامل - قريبًا</span>
     </div>
   </div>
 

@@ -38,7 +38,6 @@
     z-index:0;
   }
 
-  /* HEADER */
   header{
     position:relative;
     z-index:2;
@@ -74,13 +73,6 @@
     text-shadow:0 0 8px rgba(0,216,255,0.8);
   }
 
-  header p{
-    margin:4px 0 0;
-    font-size:0.8rem;
-    color:var(--muted);
-  }
-
-  /* PAGE WRAPPER */
   .page{
     position:relative;
     z-index:2;
@@ -89,13 +81,6 @@
     padding:0 14px 30px;
   }
 
-  .hero-note{
-    font-size:0.85rem;
-    color:var(--muted);
-    margin-bottom:14px;
-  }
-
-  /* UNIT CARD */
   .unit-card{
     background:radial-gradient(circle at top left,rgba(0,216,255,0.12),transparent 55%),
                radial-gradient(circle at bottom right,rgba(92,70,255,0.12),transparent 55%),
@@ -107,10 +92,6 @@
     box-shadow:0 0 18px rgba(0,0,0,0.8);
     animation:fadeUp 0.7s ease both;
   }
-  .unit-card:nth-child(2){ animation-delay:0.05s; }
-  .unit-card:nth-child(3){ animation-delay:0.1s; }
-  .unit-card:nth-child(4){ animation-delay:0.15s; }
-  .unit-card:nth-child(5){ animation-delay:0.2s; }
 
   @keyframes fadeUp{
     from{opacity:0; transform:translateY(12px);}
@@ -145,7 +126,6 @@
     white-space:nowrap;
   }
 
-  /* LESSONS */
   .lesson-list{
     display:flex;
     flex-direction:column;
@@ -209,7 +189,15 @@
     box-shadow:0 0 18px rgba(0,245,160,0.7);
   }
 
-  /* فصل جديد */
+  .btn-disabled{
+    background:linear-gradient(135deg,#334155,#475569);
+    color:#cbd5e1;
+    box-shadow:none;
+    cursor:not-allowed;
+    opacity:0.85;
+    pointer-events:none;
+  }
+
   .semester-divider{
     margin:28px 0 18px;
     padding:12px 16px;
@@ -225,16 +213,8 @@
       inset 0 0 10px rgba(0,216,255,0.15);
   }
 
-  /* نص القفل */
-  .lock-note{
-    font-size:0.8rem;
-    color:var(--muted);
-  }
-
-  /* RESPONSIVE */
   @media (max-width:768px){
     header h1{ font-size:1.05rem; }
-    header p{ font-size:0.78rem; }
     .back-arrow{ font-size:22px; }
     .unit-card{ padding:12px 12px 8px; }
     .lesson-title{ font-size:1.02rem; }
@@ -252,7 +232,6 @@
 </head>
 <body>
 
-<!-- نجوم الخلفية -->
 <canvas id="stars-canvas"></canvas>
 
 <header>
@@ -261,7 +240,6 @@
 </header>
 
 <div class="page">
-  <div class="hero-note"></div>
 
   <!-- الوحدة 1 -->
   <div class="unit-card">
@@ -277,27 +255,27 @@
       <div class="lesson">
         <div class="lesson-title">الدرس 1: الوقود الأحفوري وغازات الدفيئة</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4227" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4227" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 2: الوقود الأحفوري والتغير المناخي</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4152" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4152" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 3: الحد من التغير المناخي والتكيف مع آثاره</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4254" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4254" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
     </div>
 
     <div class="lesson-buttons" style="margin-top:10px;">
-      <a href="https://www.joacademy.com/online-exams/4321" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان الوحدة كامل</a>
+      <a href="https://www.joacademy.com/online-exams/4321" class="btn btn-online" target="_blank">امتحان الوحدة كامل</a>
     </div>
   </div>
 
@@ -315,27 +293,27 @@
       <div class="lesson">
         <div class="lesson-title">الدرس 1: تشوه الصخور</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4379" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4379" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 2: الصدوع</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4393" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4393" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 3: الطيات</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4398" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4398" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
     </div>
 
     <div class="lesson-buttons" style="margin-top:10px;">
-      <a href="https://www.joacademy.com/ar/online-exams/4516" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان الوحدة الأولى + الثانية</a>
+      <a href="https://www.joacademy.com/ar/online-exams/4516" class="btn btn-online" target="_blank">امتحان الوحدة الأولى + الثانية</a>
     </div>
   </div>
 
@@ -353,27 +331,27 @@
       <div class="lesson">
         <div class="lesson-title">الدرس 1: انجراف القارات</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4563" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4563" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 2: توسع قاع المحيط</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4580" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4580" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 3: حدود الصفائح</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4616" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4616" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
     </div>
 
     <div class="lesson-buttons" style="margin-top:10px;">
-      <a href="https://www.joacademy.com/ar/online-exams/4636" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان أول 3 وحد</a>
+      <a href="https://www.joacademy.com/ar/online-exams/4636" class="btn btn-online" target="_blank">امتحان أول 3 وحد</a>
     </div>
   </div>
 
@@ -388,11 +366,11 @@
     </div>
 
     <div class="lesson-buttons" style="margin-top:10px;">
-      <a href="https://www.joacademy.com/ar/online-exams/4664" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان الوحدة كامل</a>
+      <a href="https://www.joacademy.com/ar/online-exams/4664" class="btn btn-online" target="_blank">امتحان الوحدة كامل</a>
     </div>
   </div>
 
-  <!-- امتحان تجريبي (قبل الفصل الثاني) -->
+  <!-- امتحان تجريبي -->
   <div class="unit-card">
     <div class="unit-header">
       <div>
@@ -403,7 +381,7 @@
     </div>
 
     <div class="lesson-buttons" style="margin-top:10px;">
-      <a href="https://www.joacademy.com/ar/online-exams/4811" class="btn btn-online" target="_blank" rel="noopener noreferrer">دخول الامتحان التجريبي</a>
+      <a href="https://www.joacademy.com/ar/online-exams/4811" class="btn btn-online" target="_blank">دخول الامتحان التجريبي</a>
     </div>
   </div>
 
@@ -424,39 +402,62 @@
       <div class="lesson">
         <div class="lesson-title">الدرس 1: المجرات وأنواعها</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4781" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4781" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 2: توسع الكون</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4804" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4804" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 3: تسارع توسع الكون</div>
         <div class="lesson-buttons">
-          <a href="https://www.joacademy.com/ar/online-exams/4816" class="btn btn-online" target="_blank" rel="noopener noreferrer">امتحان إلكتروني</a>
+          <a href="https://www.joacademy.com/ar/online-exams/4816" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
         </div>
       </div>
 
       <div class="lesson">
         <div class="lesson-title">الدرس 4: نظريات نشأة الكون</div>
         <div class="lesson-buttons">
-          <!-- الزر مخفي قبل الساعة 4 -->
-          <a id="lesson4Exam"
-             href="https://www.joacademy.com/ar/online-exams/4843"
-             class="btn btn-online"
-             target="_blank"
-             rel="noopener noreferrer"
-             style="display:none;">
-            امتحان إلكتروني
-          </a>
+          <a href="https://www.joacademy.com/ar/online-exams/4843" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-          <!-- رسالة القفل تظهر قبل الساعة 4 -->
-          <span id="examLocked" class="lock-note">الامتحان يفتح اليوم الساعة 4:00 مساءً</span>
+  <!-- الوحدة 6 -->
+  <div class="unit-card">
+    <div class="unit-header">
+      <div>
+        <div class="unit-title">الوحدة 6: أحوال الطقس القاسية</div>
+        <div class="unit-meta">3 دروس</div>
+      </div>
+      <div class="unit-tag">🔥 الطقس القاسي</div>
+    </div>
+
+    <div class="lesson-list">
+      <div class="lesson">
+        <div class="lesson-title">الدرس 1: قياس عناصر الطقس</div>
+        <div class="lesson-buttons">
+          <a href="https://www.joacademy.com/ar/online-exams/4877" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 2: الأعاصير القمعية والمدارية</div>
+        <div class="lesson-buttons">
+          <a href="https://www.joacademy.com/ar/online-exams/4965" class="btn btn-online" target="_blank">امتحان إلكتروني</a>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-title">الدرس 3: التغير المناخي وأنماط الطقس القاسية</div>
+        <div class="lesson-buttons">
+          <span class="btn btn-disabled">قريبًا</span>
         </div>
       </div>
     </div>
@@ -464,40 +465,15 @@
 
 </div>
 
-<!-- ✅ قفل/فتح امتحان الدرس الرابع اليوم الساعة 4 -->
-<script>
-  (function () {
-    function checkExamTime() {
-      const now = new Date();             // وقت جهاز الطالب/المتصفح
-      const openTime = new Date();        // "اليوم" على نفس الجهاز
-      openTime.setHours(16, 0, 0, 0);     // 16:00 = الساعة 4:00
-
-      const examBtn = document.getElementById("lesson4Exam");
-      const lockedText = document.getElementById("examLocked");
-
-      if (!examBtn || !lockedText) return;
-
-      if (now >= openTime) {
-        examBtn.style.display = "inline-flex";
-        lockedText.style.display = "none";
-      } else {
-        examBtn.style.display = "none";
-        lockedText.style.display = "inline";
-      }
-    }
-
-    checkExamTime();
-    setInterval(checkExamTime, 15000); // فحص كل 15 ثانية
-  })();
-</script>
-
-<!-- Three.js -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 <script>
-  // نجوم الخلفية
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true, canvas:document.getElementById('stars-canvas') });
+  const renderer = new THREE.WebGLRenderer({
+    antialias:true,
+    alpha:true,
+    canvas:document.getElementById('stars-canvas')
+  });
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   function createStars(){
