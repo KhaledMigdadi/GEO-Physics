@@ -1,160 +1,107 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <title>الحقيبة الإلكترونية | فيزياء</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-  body {
-    margin: 0;
-    font-family: 'Cairo', sans-serif;
-    background: radial-gradient(circle at top, #0a0f23 0%, #02040a 100%);
-    color: white;
-    overflow-x: hidden;
-  }
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background: radial-gradient(circle at top, #0a0f23 0%, #02040a 100%);
+  color: white;
+  overflow-x: hidden;
+}
 
-  header {
-    background: rgba(0,0,0,0.6);
-    padding: 15px;
-    text-align: center;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #00d8ff;
-    position: relative;
-    z-index: 2;
-  }
+header {
+  background: rgba(0,0,0,0.6);
+  padding: 15px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00d8ff;
+  position: relative;
+  z-index: 2;
+}
 
-  .back-btn {
-    position: absolute;
-    left: 15px;
-    color: #00d8ff;
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
+.back-btn {
+  position: absolute;
+  left: 15px;
+  color: #00d8ff;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
 
-  .back-btn:hover {
-    transform: scale(1.2);
-    color: yellow;
-  }
+.container {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
 
-  .container {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: auto;
-    position: relative;
-    z-index: 2;
-  }
+h2 {
+  text-align: center;
+  color: #00d8ff;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
 
-  h2 {
-    text-align: center;
-    color: #00d8ff;
-    font-size: 2rem;
-    margin-bottom: 40px;
-    text-shadow: 0 0 10px rgba(0,216,255,0.3);
-  }
+.card {
+  background: rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 15px rgba(0,216,255,0.2);
+  transition: 0.3s;
+}
 
-  .card {
-    background: rgba(255,255,255,0.08);
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 15px rgba(0,216,255,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0,216,255,0.4);
+}
 
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 25px rgba(0,216,255,0.4);
-  }
+.card h3 {
+  color: #00d8ff;
+}
 
-  .card h3 {
-    margin-top: 0;
-    color: #00d8ff;
-    font-size: 1.4rem;
-  }
+.card p {
+  color: #ddd;
+  line-height: 1.6;
+}
 
-  .card p {
-    margin-bottom: 15px;
-    color: #ddd;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
+.download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #00d8ff, #0088ff);
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
 
-  .download-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: linear-gradient(45deg, #00d8ff, #0088ff);
-    border-radius: 10px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-  }
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  background: rgba(0,0,0,0.5);
+}
 
-  .download-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,216,255,0.5);
-  }
-
-  footer {
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-    background: rgba(0,0,0,0.5);
-    font-size: 0.9rem;
-    z-index: 2;
-  }
-
-  /* تأثير نجوم بالخلفية */
-  canvas { 
-    position: fixed; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%; 
-    z-index: 0; 
-  }
-
-  /* تصميم متجاوب */
-  @media (max-width: 768px) {
-    header {
-      font-size: 1.1rem;
-      padding: 12px;
-    }
-    .back-btn {
-      font-size: 1.2rem;
-      left: 10px;
-    }
-    h2 {
-      font-size: 1.6rem;
-    }
-    .card h3 {
-      font-size: 1.2rem;
-    }
-    .card p {
-      font-size: 0.95rem;
-    }
-    .download-btn {
-      font-size: 0.9rem;
-      padding: 8px 15px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    header {
-      font-size: 1rem;
-    }
-    h2 {
-      font-size: 1.3rem;
-    }
-    .card {
-      padding: 18px;
-    }
-  }
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -167,57 +114,78 @@
 <div class="container">
   <h2>📂 محتويات الحقيبة الإلكترونية</h2>
 
+  <!-- الامتحانات -->
   <div class="card">
     <h3>📘 امتحانات وزارة سابقة</h3>
     <p>مجموعة من امتحانات السنوات السابقة لمراجعة شاملة لجميع الوحدات.</p>
-    <a href="pdf/امتحانات الوزارة السابقة.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> تحميل الملف</a>
+    <a href="pdf/امتحانات الوزارة السابقة.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
   </div>
 
+  <!-- الحلول -->
   <div class="card">
     <h3>🧾 حلول امتحانات وزارة سابقة</h3>
     <p>ملف يحتوي على حلول جميع الامتحانات السابقة بالتفصيل والتوضيح الكامل.</p>
-    <a href="pdf/اجوبة امتحانات الوزارة.pdf " class="download-btn" target="_blank"><i class="fas fa-download"></i> تحميل الملف</a>
+    <a href="pdf/اجوبة امتحانات الوزارة.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
   </div>
+
+  <!-- الملف الجديد -->
+  <div class="card">
+    <h3>📗 وزارة فيزياء ف1</h3>
+    <p>
+      ملف يحتوي على أسئلة الوزارة للفصل الأول مرتبة حسب الوحدات مع الإجابات،
+      لمساعدتك على المراجعة المركزة والتدرب على نمط أسئلة الوزاري.
+    </p>
+    <a href="pdf/وزارة فيزياء ف1.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
 </div>
 
 <footer>
   جميع الحقوق محفوظة © 2025 | الأستاذ خالد مقدادي
 </footer>
 
-<!-- نجوم الخلفية -->
+<!-- النجوم -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 <script>
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 1, 1000);
-  const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('stars'), alpha:true});
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 1, 1000);
+const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('stars'), alpha:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+camera.position.z = 5;
+
+const starsGeometry = new THREE.BufferGeometry();
+const starCount = 1200;
+const starPositions = [];
+
+for(let i=0; i<starCount; i++){
+  starPositions.push((Math.random()-0.5)*2000);
+  starPositions.push((Math.random()-0.5)*2000);
+  starPositions.push((Math.random()-0.5)*2000);
+}
+
+starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
+const starsMaterial = new THREE.PointsMaterial({color: 0xffffff, size: 1});
+const starField = new THREE.Points(starsGeometry, starsMaterial);
+scene.add(starField);
+
+function animate(){
+  requestAnimationFrame(animate);
+  starField.rotation.y += 0.0005;
+  renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize', ()=>{
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.z = 5;
-
-  const starsGeometry = new THREE.BufferGeometry();
-  const starCount = 1200;
-  const starPositions = [];
-  for(let i=0; i<starCount; i++){
-    starPositions.push((Math.random()-0.5)*2000);
-    starPositions.push((Math.random()-0.5)*2000);
-    starPositions.push((Math.random()-0.5)*2000);
-  }
-  starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
-  const starsMaterial = new THREE.PointsMaterial({color: 0xffffff, size: 1});
-  const starField = new THREE.Points(starsGeometry, starsMaterial);
-  scene.add(starField);
-
-  function animate(){
-    requestAnimationFrame(animate);
-    starField.rotation.y += 0.0005;
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener('resize', ()=>{
-    camera.aspect = window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
+});
 </script>
 
 </body>
