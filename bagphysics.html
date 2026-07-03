@@ -132,7 +132,7 @@ canvas {
     </a>
   </div>
 
-  <!-- الملف الجديد -->
+  <!-- وزارة فيزياء ف1 -->
   <div class="card">
     <h3>📗 وزارة فيزياء ف1</h3>
     <p>
@@ -140,6 +140,72 @@ canvas {
       لمساعدتك على المراجعة المركزة والتدرب على نمط أسئلة الوزاري.
     </p>
     <a href="pdf/وزارة فيزياء ف1.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
+  <!-- ملخص مادة الفيزياء -->
+  <div class="card">
+    <h3>📙 ملخص مادة الفيزياء</h3>
+    <p>
+      ملخص شامل ومنظم لأهم أفكار مادة الفيزياء بطريقة تساعدك على المراجعة السريعة قبل الامتحان.
+    </p>
+    <a href="pdf/ملخص مادة الفيزياء.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
+  <!-- إجابات الكتاب الفصل الثاني -->
+  <div class="card">
+    <h3>🧾 إجابات الكتاب الفصل الثاني</h3>
+    <p>
+      ملف يحتوي على إجابات أسئلة الكتاب للفصل الثاني لمتابعة الحلول والتأكد من طريقة الإجابة الصحيحة.
+    </p>
+    <a href="pdf/إجابات الكتاب الفصل الثاني.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
+  <!-- حلول الكتاب الفصل الأول -->
+  <div class="card">
+    <h3>📘 حلول الكتاب الفصل الأول</h3>
+    <p>
+      ملف مخصص لحلول أسئلة الكتاب للفصل الأول، مناسب للمراجعة والتدريب على الأسئلة الأساسية.
+    </p>
+    <a href="pdf/حلول الكتاب الفصل الأول.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
+  <!-- ملخص قوانين مادة الفيزياء -->
+  <div class="card">
+    <h3>⚡ ملخص قوانين مادة الفيزياء</h3>
+    <p>
+      تجميع مرتب لأهم قوانين الفيزياء مع تنظيم يساعد الطالب على الحفظ والمراجعة السريعة.
+    </p>
+    <a href="pdf/ملخص قوانين مادة الفيزياء.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
+  <!-- ملحق مواضيع الربط -->
+  <div class="card">
+    <h3>🔗 ملحق مواضيع الربط</h3>
+    <p>
+      ملحق خاص بمواضيع الربط بين الأفكار والوحدات، مناسب لأسئلة الفهم والتحليل والربط الوزاري.
+    </p>
+    <a href="pdf/%D9%85%D9%84%D8%AD%D9%82%20%D9%85%D9%88%D8%A7%D8%B6%D9%8A%D8%B9%20%D8%A7%D9%84%D8%B1%D8%A8%D8%B7%20.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
+  <!-- ملخص قوانين المادة -->
+  <div class="card">
+    <h3>📌 ملخص قوانين المادة</h3>
+    <p>
+      ملف مختصر يجمع قوانين المادة بشكل واضح ومنسق ليساعدك على مراجعة القوانين قبل الامتحان.
+    </p>
+    <a href="pdf/ملخص قوانين المادة.pdf" class="download-btn" target="_blank">
       <i class="fas fa-download"></i> تحميل الملف
     </a>
   </div>
@@ -155,7 +221,11 @@ canvas {
 <script>
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 1, 1000);
-const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('stars'), alpha:true});
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.getElementById('stars'),
+  alpha: true
+});
+
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.z = 5;
 
@@ -163,14 +233,19 @@ const starsGeometry = new THREE.BufferGeometry();
 const starCount = 1200;
 const starPositions = [];
 
-for(let i=0; i<starCount; i++){
-  starPositions.push((Math.random()-0.5)*2000);
-  starPositions.push((Math.random()-0.5)*2000);
-  starPositions.push((Math.random()-0.5)*2000);
+for(let i = 0; i < starCount; i++){
+  starPositions.push((Math.random() - 0.5) * 2000);
+  starPositions.push((Math.random() - 0.5) * 2000);
+  starPositions.push((Math.random() - 0.5) * 2000);
 }
 
 starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
-const starsMaterial = new THREE.PointsMaterial({color: 0xffffff, size: 1});
+
+const starsMaterial = new THREE.PointsMaterial({
+  color: 0xffffff,
+  size: 1
+});
+
 const starField = new THREE.Points(starsGeometry, starsMaterial);
 scene.add(starField);
 
@@ -179,10 +254,11 @@ function animate(){
   starField.rotation.y += 0.0005;
   renderer.render(scene, camera);
 }
+
 animate();
 
-window.addEventListener('resize', ()=>{
-  camera.aspect = window.innerWidth/window.innerHeight;
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
