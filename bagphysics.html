@@ -126,7 +126,7 @@ canvas {
   <!-- الحلول -->
   <div class="card">
     <h3>🧾 حلول امتحانات وزارة سابقة</h3>
-    <p>ملف يحتوي على حلول جميع امتحانات الوزارة بالملف السابق بنفس الترتيب .</p>
+    <p>ملف يحتوي على حلول جميع امتحانات الوزارة بالملف السابق بنفس الترتيب.</p>
     <a href="pdf/اجوبة امتحانات الوزارة.pdf" class="download-btn" target="_blank">
       <i class="fas fa-download"></i> تحميل الملف
     </a>
@@ -140,6 +140,29 @@ canvas {
       لمساعدتك على المراجعة المركزة والتدرب على نمط أسئلة الوزاري.
     </p>
     <a href="pdf/وزارة فيزياء ف1.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
+  <!-- مواضيع الربط وحدة الكهرباء السكونية -->
+  <div class="card">
+    <h3>🔗 مواضيع الربط وحدة الكهرباء السكونية</h3>
+    <p>
+      ملف يحتوي على مواضيع الربط الخاصة بوحدة الكهرباء السكونية بطريقة مرتبة،
+      تساعدك على فهم أفكار الربط والتحليل والاستعداد لأسئلة الوزارة.
+    </p>
+    <a href="pdf/مواضيع الربط وحدة الكهرباء السكونية.pdf" class="download-btn" target="_blank">
+      <i class="fas fa-download"></i> تحميل الملف
+    </a>
+  </div>
+
+  <!-- أسئلة وحدة الكهرباء السكونية -->
+  <div class="card">
+    <h3>⚡ أسئلة وحدة الكهرباء السكونية</h3>
+    <p>
+      ملف يحتوي على أسئلة وحدة الكهرباء السكونية للتدريب والمراجعة المركزة على أفكار الوحدة.
+    </p>
+    <a href="pdf/اسئلة وحدة الكهرباء السكونية.pdf" class="download-btn" target="_blank">
       <i class="fas fa-download"></i> تحميل الملف
     </a>
   </div>
@@ -183,7 +206,7 @@ canvas {
     <p>
       ملحق خاص بمواضيع الربط بين الأفكار والوحدات، مناسب لأسئلة الفهم والتحليل والربط الوزاري.
     </p>
-    <a href="pdf/%D9%85%D9%84%D8%AD%D9%82%20%D9%85%D9%88%D8%A7%D8%B6%D9%8A%D8%B9%20%D8%A7%D9%84%D8%B1%D8%A8%D8%B7%20.pdf" class="download-btn" target="_blank">
+    <a href="pdf/ملحق مواضيع الربط .pdf" class="download-btn" target="_blank">
       <i class="fas fa-download"></i> تحميل الملف
     </a>
   </div>
@@ -209,7 +232,14 @@ canvas {
 <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 <script>
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 1, 1000);
+
+const camera = new THREE.PerspectiveCamera(
+  60,
+  window.innerWidth / window.innerHeight,
+  1,
+  1000
+);
+
 const renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById('stars'),
   alpha: true
@@ -222,13 +252,16 @@ const starsGeometry = new THREE.BufferGeometry();
 const starCount = 1200;
 const starPositions = [];
 
-for(let i = 0; i < starCount; i++){
+for (let i = 0; i < starCount; i++) {
   starPositions.push((Math.random() - 0.5) * 2000);
   starPositions.push((Math.random() - 0.5) * 2000);
   starPositions.push((Math.random() - 0.5) * 2000);
 }
 
-starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
+starsGeometry.setAttribute(
+  'position',
+  new THREE.Float32BufferAttribute(starPositions, 3)
+);
 
 const starsMaterial = new THREE.PointsMaterial({
   color: 0xffffff,
@@ -238,7 +271,7 @@ const starsMaterial = new THREE.PointsMaterial({
 const starField = new THREE.Points(starsGeometry, starsMaterial);
 scene.add(starField);
 
-function animate(){
+function animate() {
   requestAnimationFrame(animate);
   starField.rotation.y += 0.0005;
   renderer.render(scene, camera);
